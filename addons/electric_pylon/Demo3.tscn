@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyj711qp5mwis"]
+
+[ext_resource type="PackedScene" uid="uid://c35mw6tncfr7g" path="res://addons/electric_pylon/parts/ElectricPylon_L6.tscn" id="1_i44k6"]
+
+[sub_resource type="Environment" id="Environment_i44k6"]
+background_mode = 1
+background_color = Color(0.17024106, 0.23086464, 0.31229243, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.43134022, 0.43134025, 0.43134025, 1)
+ambient_light_energy = 2.0
+
+[node name="Demo" type="Node3D"]
+
+[node name="ElectricPylon_L6" parent="." instance=ExtResource("1_i44k6")]
+transform = Transform3D(0.927406, 0, 0.3740563, 0, 1, 0, -0.3740563, 0, 0.927406, 200, 0, 200)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i44k6")

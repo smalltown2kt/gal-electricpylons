@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dp5tu5mn32c56"]
+
+[ext_resource type="Texture2D" uid="uid://leynwh54ccey" path="res://addons/electric_pylon/textures/Blueprint2048.png" id="1_76qwx"]
+
+[resource]
+albedo_texture = ExtResource("1_76qwx")
+metallic = 0.65
+uv1_scale = Vector3(10, 10, 10)

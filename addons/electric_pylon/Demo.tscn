@@ -1,0 +1,291 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqwk8ek55l3po"]
+
+[ext_resource type="Material" uid="uid://dp5tu5mn32c56" path="res://addons/electric_pylon/materials/Blueprint.tres" id="1_cfx0a"]
+[ext_resource type="PackedScene" uid="uid://c35mw6tncfr7g" path="res://addons/electric_pylon/parts/ElectricPylon_L6.tscn" id="2_teyaq"]
+[ext_resource type="Material" uid="uid://bi4j4260grdu0" path="res://addons/electric_pylon/materials/Wire.tres" id="3_j0h3c"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cgvx1"]
+size = Vector2(1024, 1024)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ed7kh"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 250.0
+radial_segments = 4
+rings = 25
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cfx0a"]
+sky_top_color = Color(0.39285457, 0.5952269, 0.96548384, 1)
+
+[sub_resource type="Sky" id="Sky_teyaq"]
+sky_material = SubResource("ProceduralSkyMaterial_cfx0a")
+
+[sub_resource type="Environment" id="Environment_cfx0a"]
+background_mode = 2
+sky = SubResource("Sky_teyaq")
+
+[node name="Demo" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_cfx0a")
+mesh = SubResource("PlaneMesh_cgvx1")
+
+[node name="Pylons" type="Node3D" parent="."]
+
+[node name="ElectricPylon_L6_1" parent="Pylons" instance=ExtResource("2_teyaq")]
+
+[node name="ElectricPylon_L6_2" parent="Pylons" instance=ExtResource("2_teyaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 250)
+
+[node name="ElectricPylon_L6_3" parent="Pylons" instance=ExtResource("2_teyaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 500)
+
+[node name="ElectricPylon_L6_4" parent="Pylons" instance=ExtResource("2_teyaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -250)
+
+[node name="ElectricPylon_L6_5" parent="Pylons" instance=ExtResource("2_teyaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -500)
+
+[node name="Wires" type="Node3D" parent="."]
+
+[node name="WireBundle" type="Node3D" parent="Wires"]
+
+[node name="Wire_LL" type="MeshInstance3D" parent="Wires/WireBundle"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_LR" type="MeshInstance3D" parent="Wires/WireBundle"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_ML" type="MeshInstance3D" parent="Wires/WireBundle"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_MR" type="MeshInstance3D" parent="Wires/WireBundle"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TL" type="MeshInstance3D" parent="Wires/WireBundle"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TR" type="MeshInstance3D" parent="Wires/WireBundle"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TC" type="MeshInstance3D" parent="Wires/WireBundle"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 42, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="WireBundle2" type="Node3D" parent="Wires"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 250)
+
+[node name="Wire_LL" type="MeshInstance3D" parent="Wires/WireBundle2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_LR" type="MeshInstance3D" parent="Wires/WireBundle2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_ML" type="MeshInstance3D" parent="Wires/WireBundle2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_MR" type="MeshInstance3D" parent="Wires/WireBundle2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TL" type="MeshInstance3D" parent="Wires/WireBundle2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TR" type="MeshInstance3D" parent="Wires/WireBundle2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TC" type="MeshInstance3D" parent="Wires/WireBundle2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 42, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="WireBundle3" type="Node3D" parent="Wires"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -250)
+
+[node name="Wire_LL" type="MeshInstance3D" parent="Wires/WireBundle3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_LR" type="MeshInstance3D" parent="Wires/WireBundle3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_ML" type="MeshInstance3D" parent="Wires/WireBundle3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_MR" type="MeshInstance3D" parent="Wires/WireBundle3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TL" type="MeshInstance3D" parent="Wires/WireBundle3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TR" type="MeshInstance3D" parent="Wires/WireBundle3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TC" type="MeshInstance3D" parent="Wires/WireBundle3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 42, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="WireBundle4" type="Node3D" parent="Wires"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -500)
+
+[node name="Wire_LL" type="MeshInstance3D" parent="Wires/WireBundle4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_LR" type="MeshInstance3D" parent="Wires/WireBundle4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_ML" type="MeshInstance3D" parent="Wires/WireBundle4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_MR" type="MeshInstance3D" parent="Wires/WireBundle4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TL" type="MeshInstance3D" parent="Wires/WireBundle4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TR" type="MeshInstance3D" parent="Wires/WireBundle4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TC" type="MeshInstance3D" parent="Wires/WireBundle4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 42, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="WireBundle5" type="Node3D" parent="Wires"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 500)
+
+[node name="Wire_LL" type="MeshInstance3D" parent="Wires/WireBundle5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_LR" type="MeshInstance3D" parent="Wires/WireBundle5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_ML" type="MeshInstance3D" parent="Wires/WireBundle5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_MR" type="MeshInstance3D" parent="Wires/WireBundle5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TL" type="MeshInstance3D" parent="Wires/WireBundle5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TR" type="MeshInstance3D" parent="Wires/WireBundle5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TC" type="MeshInstance3D" parent="Wires/WireBundle5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 42, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="WireBundle6" type="Node3D" parent="Wires"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -750)
+
+[node name="Wire_LL" type="MeshInstance3D" parent="Wires/WireBundle6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_LR" type="MeshInstance3D" parent="Wires/WireBundle6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -8.5, 15, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_ML" type="MeshInstance3D" parent="Wires/WireBundle6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_MR" type="MeshInstance3D" parent="Wires/WireBundle6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -10.25, 24, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TL" type="MeshInstance3D" parent="Wires/WireBundle6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TR" type="MeshInstance3D" parent="Wires/WireBundle6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7, 33, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Wire_TC" type="MeshInstance3D" parent="Wires/WireBundle6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 42, 125)
+material_override = ExtResource("3_j0h3c")
+mesh = SubResource("CylinderMesh_ed7kh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.9696757, -0.015485247, 0.24390417, 0, 0.99799067, 0.06336149, -0.24439524, -0.061440095, 0.9677273, 18.411312, 22.179867, 281.59662)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.49999994, -0.663414, 0.5566704, 0, 0.64278764, 0.76604444, -0.8660254, -0.3830222, 0.3213938, 0, 1, 0)
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cfx0a")

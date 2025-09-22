@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dl00xf6ggf7uh"]
+
+[ext_resource type="Texture2D" uid="uid://qm33n2x2fw6q" path="res://addons/electric_pylon/textures/Pylon_L6.png" id="1_oh3x1"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.375
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.42749998, 0.45, 0.43875, 1)
+albedo_texture = ExtResource("1_oh3x1")
+metallic = 0.01
+roughness = 0.7
