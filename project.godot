@@ -15,9 +15,18 @@ run/main_scene="uid://bqwk8ek55l3po"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="gas-electricpylon"
+
+[editor]
+
+movie_writer/movie_file="/Users/chris/Godot/gas-electricpylon/img/Preview_rotator.avi"
 
 [rendering]
 
